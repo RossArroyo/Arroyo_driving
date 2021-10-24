@@ -1,4 +1,4 @@
-defmodule Arroyo_Driving.User do
+defmodule ArroyoDriving.User do
   use Ecto.Schema
   import Ecto.Changeset
   alias Bcrypt
