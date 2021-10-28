@@ -1,7 +1,7 @@
 defmodule ArroyoDriving.Courses do
   use Ecto.Schema
   import Ecto.Changeset
-
+  alias ArroyoDriving.User
 
   schema "courses" do
     field :title, :string
@@ -15,6 +15,6 @@ defmodule ArroyoDriving.Courses do
 
 def changeset(game, attrs \\ %{}) do
   game
-  |> cast(attrs, [:name, :publisher, :cover_art_url])
+  |> cast(attrs, [:title, :price, :instructor])
   end
 end
