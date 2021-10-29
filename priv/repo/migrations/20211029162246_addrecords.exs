@@ -8,6 +8,5 @@ defmodule ArroyoDriving.Repo.Migrations.Addrecords do
 
       timestamps()
     end
-
   end
 end

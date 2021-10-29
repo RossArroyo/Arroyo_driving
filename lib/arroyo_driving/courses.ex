@@ -3,7 +3,6 @@ defmodule ArroyoDriving.Courses do
   import Ecto.Changeset
   alias ArroyoDriving.User
 
-
   ################################## schema function
   schema "courses" do
     field :title, :string
@@ -13,18 +12,16 @@ defmodule ArroyoDriving.Courses do
     belongs_to :user, User
   end
 
-
-
-@spec changeset(
-        {map, map}
-        | %{
-            :__struct__ => atom | %{:__changeset__ => map, optional(any) => any},
-            optional(atom) => any
-          },
-        :invalid | %{optional(:__struct__) => none, optional(atom | binary) => any}
-      ) :: Ecto.Changeset.t()
-def changeset(courses, attrs \\ %{}) do
-  courses
-  |> cast(attrs, [:title, :price, :instructor])
+  @spec changeset(
+          {map, map}
+          | %{
+              :__struct__ => atom | %{:__changeset__ => map, optional(any) => any},
+              optional(atom) => any
+            },
+          :invalid | %{optional(:__struct__) => none, optional(atom | binary) => any}
+        ) :: Ecto.Changeset.t()
+  def changeset(courses, attrs \\ %{}) do
+    courses
+    |> cast(attrs, [:title, :price, :instructor])
   end
 end

@@ -11,8 +11,5 @@ defmodule ArroyoDriving.Repo.Migrations.User do
 
       timestamps()
     end
-
-
-
   end
 end

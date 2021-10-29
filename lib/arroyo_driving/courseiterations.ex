@@ -14,8 +14,8 @@ defmodule ArroyoDriving.CourseIterations do
     timestamps()
   end
 
-def changeset(course_iteration, attrs \\ %{}) do
-  course_iteration
-  |> cast(attrs, [:title, :season, :instructor])
+  def changeset(course_iteration, attrs \\ %{}) do
+    course_iteration
+    |> cast(attrs, [:title, :season, :instructor])
   end
 end
