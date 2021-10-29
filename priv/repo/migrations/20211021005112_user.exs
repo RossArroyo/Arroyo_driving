@@ -9,7 +9,7 @@ defmodule ArroyoDriving.Repo.Migrations.User do
       add :phone, :string, null: false
       add :email, :string, null: false
 
-
+      timestamps()
     end
 
 

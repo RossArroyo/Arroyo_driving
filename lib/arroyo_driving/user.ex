@@ -3,18 +3,19 @@ defmodule ArroyoDriving.User do
   import Ecto.Changeset
   alias Bcrypt
 
-  schema "user" do
+  ############################## schema function
+  schema "users" do
     field :username, :string
     field :password, :string
+
     field :name, :string
     field :phone, :string
     field :email, :string
-    field :balance, :decimal
   end
 
   def changeset(%__MODULE__{} = user, attrs) do
     user
-    |> cast(attrs, [:username, :password, :name, :phone, :email, :balance])
+    |> cast(attrs, [:username, :password, :name, :phone, :email])
   end
 
   def create_changeset(%__MODULE__{} = user, attrs) do
