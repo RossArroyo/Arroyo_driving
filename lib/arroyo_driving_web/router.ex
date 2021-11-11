@@ -18,6 +18,7 @@ defmodule ArroyoDrivingWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/dashboard", DashboardController, :index
   end
 
   # Other scopes may use custom stacks.
@@ -37,7 +38,7 @@ defmodule ArroyoDrivingWeb.Router do
 
     scope "/" do
       pipe_through :browser
-      live_dashboard "/dashboard", metrics: ArroyoDrivingWeb.Telemetry
+      live_dashboard "/phxdashboard", metrics: ArroyoDrivingWeb.Telemetry
     end
   end
 

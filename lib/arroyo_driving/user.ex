@@ -4,7 +4,7 @@ defmodule ArroyoDriving.User do
   alias Bcrypt
 
   ############################## schema function
-  schema "users" do
+  schema "user" do
     field :username, :string
     field :password, :string
 
