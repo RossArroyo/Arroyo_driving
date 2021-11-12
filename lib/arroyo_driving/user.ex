@@ -7,6 +7,7 @@ defmodule ArroyoDriving.User do
   schema "user" do
     field :username, :string
     field :password, :string
+    field :password_hash, :string
 
     field :name, :string
     field :phone, :string
@@ -26,4 +27,14 @@ defmodule ArroyoDriving.User do
     |> validate_length(:phone, min: 10)
     |> validate_format(:email, ~r/@/)
   end
+
+defp put_password_hash(
+  %Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset
+) do
+put_change(changeset, :password_hash, Bcrypt.hash_pwd_salt(password))
+end
+
+defp put_password_hash(changeset) do
+changeset
+end
 end
