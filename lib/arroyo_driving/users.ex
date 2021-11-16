@@ -1,10 +1,10 @@
-defmodule ArroyoDriving.User do
+defmodule ArroyoDriving.Users do
   use Ecto.Schema
   import Ecto.Changeset
   alias Bcrypt
 
   ############################## schema function
-  schema "user" do
+  schema "users" do
     field :username, :string
     field :password, :string
     field :password_hash, :string
@@ -14,18 +14,19 @@ defmodule ArroyoDriving.User do
     field :email, :string
   end
 
-  def changeset(%__MODULE__{} = user, attrs) do
-    user
+  def changeset(%__MODULE__{} = users, attrs) do
+    users
     |> cast(attrs, [:username, :password, :name, :phone, :email])
   end
 
-  def create_changeset(%__MODULE__{} = user, attrs) do
-    user
+  def create_changeset(%__MODULE__{} = users, attrs) do
+    users
     |> cast(attrs, [:username, :password, :name, :phone, :email])
     |> validate_required([:username, :password, :name, :phone, :email])
     |> validate_length(:password, min: 8)
     |> validate_length(:phone, min: 10)
     |> validate_format(:email, ~r/@/)
+    |> put_password_hash()
   end
 
 defp put_password_hash(

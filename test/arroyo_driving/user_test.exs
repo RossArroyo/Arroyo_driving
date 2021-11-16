@@ -1,7 +1,7 @@
 defmodule ArroyoDriving.UserTest do
   use ArroyoDriving.DataCase
   alias ArroyoDriving.Accounts
-
+##------------------------------------v test is failing now------------
   describe "module Users.create/1" do
     test "should create a new user with correct params" do
       params = %{
@@ -14,7 +14,7 @@ defmodule ArroyoDriving.UserTest do
 
       assert {:ok, %{}} = Accounts.create(params)
     end
-
+##------------------------------------------------------------------------
     test "should reject creating a user with no password" do
       params = %{
         username: "rossarroyo1",
