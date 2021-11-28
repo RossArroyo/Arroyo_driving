@@ -3,7 +3,7 @@ defmodule ArroyoDriving.Repo.Migrations.UserPassHash do
 
   def change do
   alter table("users") do
-  add :password_hash, :string
+  add :password_hash, :string, null: false
   end
 
   end

@@ -6,13 +6,16 @@ defmodule ArroyoDriving.Users do
   ############################## schema function
   schema "users" do
     field :username, :string
-    field :password, :string
+    field :password, :string, virtual: true
     field :password_hash, :string
 
     field :name, :string
     field :phone, :string
     field :email, :string
+
+   timestamps()
   end
+
 
   def changeset(%__MODULE__{} = users, attrs) do
     users
