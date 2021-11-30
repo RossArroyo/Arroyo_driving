@@ -13,9 +13,8 @@ defmodule ArroyoDriving.Users do
     field :phone, :string
     field :email, :string
 
-   timestamps()
+    timestamps()
   end
-
 
   def changeset(%__MODULE__{} = users, attrs) do
     users
@@ -32,13 +31,13 @@ defmodule ArroyoDriving.Users do
     |> put_password_hash()
   end
 
-defp put_password_hash(
-  %Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset
-) do
-put_change(changeset, :password_hash, Bcrypt.hash_pwd_salt(password))
-end
+  defp put_password_hash(
+         %Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset
+       ) do
+    put_change(changeset, :password_hash, Bcrypt.hash_pwd_salt(password))
+  end
 
-defp put_password_hash(changeset) do
-changeset
-end
+  defp put_password_hash(changeset) do
+    changeset
+  end
 end
