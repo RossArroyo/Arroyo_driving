@@ -16,5 +16,9 @@ defmodule ArroyoDriving.UserAuthTest do
       assert {:ok,  %{email: email}} = Accounts.create(params)
       assert %Users{email: ^email} = UserAuth.login(email, password)
     end
+
+    test "should return nil for bad login" do
+      assert UserAuth.login("totallylegitemail@hooli.com", "DefinitlyReal") == nil
+    end
   end
 end
