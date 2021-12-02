@@ -14,7 +14,6 @@ defmodule ArroyoDriving.UserAuthTest do
         email: "rossarroyo@ucwv.edu"
       }
       assert {:ok,  %{email: email}} = Accounts.create(params)
-
       assert %Users{email: ^email} = UserAuth.login(email, password)
     end
   end
