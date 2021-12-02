@@ -12,7 +12,7 @@ defmodule ArroyoDriving.UserTest do
         email: "rossarroyo@ucwv.edu"
       }
 
-      # assert {:ok, %{}} = Accounts.create(params)
+      assert {:ok, %{}} = Accounts.create(params)
     end
 
     test "should reject creating a user with no password" do
