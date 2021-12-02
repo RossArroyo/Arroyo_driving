@@ -18,7 +18,7 @@ defmodule ArroyoDrivingWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    get "/dashboard", DashboardController, :index
+    get "/dashboard/:users_id", DashboardController, :index
   end
 
   # Other scopes may use custom stacks.
