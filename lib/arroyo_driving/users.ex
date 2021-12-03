@@ -29,6 +29,7 @@ defmodule ArroyoDriving.Users do
     |> validate_length(:phone, min: 10)
     |> validate_format(:email, ~r/@/)
     |> put_password_hash()
+    |> unique_constraint(:email)
   end
 
   defp put_password_hash(
