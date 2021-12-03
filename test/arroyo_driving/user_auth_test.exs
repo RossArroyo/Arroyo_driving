@@ -5,7 +5,8 @@ defmodule ArroyoDriving.UserAuthTest do
 
   describe "UserAauth.login/2" do
     test "Login should go through allow user access" do
-      password= "ThisPassword"
+      password = "ThisPassword"
+
       params = %{
         username: "rossarroyo1",
         password: password,
@@ -13,7 +14,8 @@ defmodule ArroyoDriving.UserAuthTest do
         phone: "956-371-4887",
         email: "rossarroyo@ucwv.edu"
       }
-      assert {:ok,  %{email: email}} = Accounts.create(params)
+
+      assert {:ok, %{email: email}} = Accounts.create(params)
       assert %Users{email: ^email} = UserAuth.login(email, password)
     end
 

@@ -2,18 +2,15 @@ defmodule ArroyoDrivingWeb.DashboardController do
   use ArroyoDrivingWeb, :controller
   alias ArroyoDriving.{Accounts, Users}
 
-  def index(conn, %{"users_id" => users_id} = _params) do
-    with %Users{} = users <- Accounts.get(users_id) do
+  plug :authenticate_user
 
-      render(conn, "index.html", account: users)
-    else
-      nil ->
-        conn
-        |> put_status(404)
-        |> render(:"404")
+  def index(%{assigns: %{authenticated_user: users}} = conn, _params) do
+    render(conn, "index.html", account: users)
+  end
 
-
-
-    end
+  def authenticate_user(conn, _opts) do
+    token = get_session(conn, :user_token)
+    {:ok, id} = Phoenix.Token.verify(ArroyoDrivingWeb.Endpoint, "randomized_salt", token)
+    assign(conn, :authenticated_user, Accounts.get(id))
   end
 end

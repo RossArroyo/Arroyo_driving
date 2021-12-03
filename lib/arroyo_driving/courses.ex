@@ -1,7 +1,7 @@
 defmodule ArroyoDriving.Courses do
   use Ecto.Schema
   import Ecto.Changeset
-  alias ArroyoDriving.User
+  alias ArroyoDriving.Users
 
   ################################## schema function
   schema "courses" do
@@ -9,7 +9,7 @@ defmodule ArroyoDriving.Courses do
     field :price, :decimal
     field :instructor, :string
 
-    belongs_to :user, User
+    belongs_to :user, Users
   end
 
   @spec changeset(

@@ -9,7 +9,6 @@ defmodule ArroyoDriving.Records do
     field :goodstanding, :boolean
   end
 
-
   def changeset(records, attrs \\ %{}) do
     records
     |> cast(attrs, [:balance, :goodstanding])

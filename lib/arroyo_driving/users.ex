@@ -19,6 +19,7 @@ defmodule ArroyoDriving.Users do
   def changeset(%__MODULE__{} = users, attrs) do
     users
     |> cast(attrs, [:username, :password, :name, :phone, :email])
+    |> put_password_hash()
   end
 
   def create_changeset(%__MODULE__{} = users, attrs) do

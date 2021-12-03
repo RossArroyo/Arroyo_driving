@@ -3,7 +3,5 @@ defmodule ArroyoDriving.Repo.Migrations.Uemail do
 
   def change do
     create unique_index(:users, [:email])
-
-    end
-
+  end
 end
