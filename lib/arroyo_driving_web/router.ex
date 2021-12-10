@@ -21,6 +21,9 @@ defmodule ArroyoDrivingWeb.Router do
     get "/dashboard", DashboardController, :index
     get "/session/new", SessionController, :new
     post "/session", SessionController, :create
+    delete "/session", SessionController, :delete
+    get "/create", CreateController, :new
+    post "/create", CreateController, :create
   end
 
   # Other scopes may use custom stacks.

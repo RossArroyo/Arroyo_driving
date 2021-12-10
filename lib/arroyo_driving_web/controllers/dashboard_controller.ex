@@ -1,9 +1,10 @@
 defmodule ArroyoDrivingWeb.DashboardController do
   use ArroyoDrivingWeb, :controller
-  alias ArroyoDriving.{Accounts, Users}
+  alias ArroyoDriving.Accounts
 
   plug :authenticate_user
 
+  @spec index(Plug.Conn.t(), any) :: Plug.Conn.t()
   def index(%{assigns: %{authenticated_user: users}} = conn, _params) do
     render(conn, "index.html", account: users)
   end
