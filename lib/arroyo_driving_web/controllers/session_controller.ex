@@ -8,6 +8,7 @@ defmodule ArroyoDrivingWeb.SessionController do
   end
 
 
+  @spec create(Plug.Conn.t(), map) :: Plug.Conn.t()
   def create(conn, %{"session" => %{"email" => email, "password" => password}}) do
     with %Users{id: id} <- UserAuth.login(email, password),
          token <- Phoenix.Token.sign(ArroyoDrivingWeb.Endpoint, "randomized_salt", id) do
@@ -26,8 +27,7 @@ defmodule ArroyoDrivingWeb.SessionController do
 
   def delete(conn, _params) do
     conn
-    |> clear_session()
-    |> render("new.html")
+    |>redirect(to: Routes.session_path(conn, :new))
     |> halt()
   end
 end
